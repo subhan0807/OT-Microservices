@@ -1,0 +1,47 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Change to your default branch if it's not 'main'
+  pull_request:
+    branches:
+      - main  # Change to your default branch if it's not 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'  # Specify the Python version you need
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Make sure you have a requirements.txt file
+
+      - name: Run tests
+        run: |
+          # Add your testing commands here, for example:
+          pytest  # If you're using pytest for testing
+
+      - name: Run linting
+        run: |
+          pip install pylint  # Install pylint
+          pylint your_module_name  # Replace with your module name
+          
+      - name: Build Docker Image (optional)
+        run: |
+          docker build -t your-image-name .
+          # Push to your Docker registry if needed
+
+      - name: Deploy (optional)
+        run: |
+          # Add your deployment commands here
+          # For example, using SSH to a remote server
