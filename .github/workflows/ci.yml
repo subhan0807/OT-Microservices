@@ -39,9 +39,13 @@ jobs:
         run: |
           cd attendance
           docker build . --file Dockerfile --tag attendance_api:latest
-
+          
+      - name: List Docker Images
+        run: docker images
+        
       - name: Push Docker Image
         run: |
+          # cd attendanc
           docker push subhan0807/attendance_api:latest
 
           
