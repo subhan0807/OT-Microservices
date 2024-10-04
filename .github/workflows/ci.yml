@@ -32,12 +32,13 @@ jobs:
           cd attendance
           python -m pytest test_attendance_api.py
 
-      - name: Build Docker Image
-        run: |
-          docker build . --file Dockerfile --tag  subhan0807/attendance/attendance_api:latest
-
       - name: Log in to Docker Hub
         run: echo "subaero007" | docker login -u "subhan0807" --password-stdin
+
+      - name: Build Docker Image
+        run: |
+          cd attendance
+          docker build . --file Dockerfile --tag attendance_api:latest
 
       - name: Push Docker Image
         run: |
