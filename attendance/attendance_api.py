@@ -2,7 +2,7 @@
 # pylint: disable=no-member, bare-except, line-too-long
 """
 Attendance application is part of OT-Microservices.
-This application stores and pull attendance data from MySQL
+This application stores and pulls attendance data from MySQL
 Available Endpoints:-
     - /attendance/create
     - /attendance/search
@@ -20,13 +20,14 @@ from elasticapm.handlers.logging import LoggingHandler
 
 ELASTIC_APM_SERVER_URL = os.getenv('ELASTIC_APM_SERVER_URL', 'http://localhost:8200')
 ELASTIC_APM_SERVICE_NAME = os.getenv('ELASTIC_APM_SERVICE_NAME', 'attendance')
-CONFIG_FILE = os.getenv('CONFIG_FILE', 'attendance/config.yaml')
 
 app = Flask(__name__)
 
 def read_config():
     """Method for reading the configuration file for attendance"""
-    with open(CONFIG_FILE, 'r', encoding="utf-8") as config_file:
+    # Construct the path to config.yaml
+    config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.yaml')
+    with open(config_path, 'r', encoding="utf-8") as config_file:
         yaml_values = yaml.load(config_file, Loader=yaml.FullLoader)
     return yaml_values
 
