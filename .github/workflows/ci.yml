@@ -30,7 +30,7 @@ jobs:
       - name: Run tests
         run: |
           cd attendance
-          python -m pytest ../test_attendance_api.py
+          python -m pytest test_attendance_api.py
         
       - name: Run linting
         run: |
