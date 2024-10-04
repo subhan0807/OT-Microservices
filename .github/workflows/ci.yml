@@ -46,7 +46,6 @@ jobs:
         
       - name: Push Docker Image
         run: |
-          # cd attendance
           docker tag my-app subhan0807/my-app:latest
           docker push subhan0807/my-app:latest
 
