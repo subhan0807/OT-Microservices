@@ -35,7 +35,7 @@ jobs:
       - name: Run linting
         run: |
           pip install pylint  # Install pylint
-          pylint ../attendance_api.py # Replace with your module name
+          pylint attendance/attendance_api.py # Replace with your module name
           
       # - name: Build Docker Image (optional)
       #   run: |
