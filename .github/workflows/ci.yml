@@ -3,7 +3,7 @@ name: CI Pipeline
 on: [push]
   # push:
   #   branches:
-  #     - main  # Change to your default branch if it's not 'main'
+  #     - main  # Change to  your default branch if it's not 'main'
   # pull_request:
   #   branches:
   #     - main  # Change to your default branch if it's not 'main'
