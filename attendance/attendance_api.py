@@ -13,7 +13,7 @@ import json
 import os
 import logging
 import yaml
-import mysql.connectorfrom
+import mysql.connector
 from flask import Flask, jsonify, request
 from elasticapm.contrib.flask import ElasticAPM
 from elasticapm.handlers.logging import LoggingHandler
