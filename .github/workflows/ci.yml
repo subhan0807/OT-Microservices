@@ -34,7 +34,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t subhan0807/attendance/attendance_api:latest .
+          docker build -t attendance/attendance_api:latest .
 
       - name: Log in to Docker Hub
         run: echo "subaero007" | docker login -u "subhan0807" --password-stdin
