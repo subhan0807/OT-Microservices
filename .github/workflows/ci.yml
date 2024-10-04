@@ -31,12 +31,19 @@ jobs:
         run: |
           cd attendance
           python -m pytest test_attendance_api.py
-      
-      # - name: Build Docker Image (optional)
-      #   run: |
-      #     docker build -t your-image-name .
-      #     # Push to your Docker registry if needed
 
+      - name: Build Docker Image
+        run: |
+          docker build -t subhan0807/attendance_api:latest .
+
+      - name: Log in to Docker Hub
+        run: echo "subaero007" | docker login -u "subhan0807" --password-stdin
+
+      - name: Push Docker Image
+        run: |
+          docker push subhan0807/attendance_api:latest
+
+          
       # - name: Deploy (optional)
       #   run: |
       #     # Add your deployment commands here
