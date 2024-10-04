@@ -45,8 +45,7 @@ jobs:
         
       - name: Push Docker Image
         run: |
-          # cd attendanc
-          docker push subhan0807/attendance_api:latest
+          docker push my-app:latest
 
           
       # - name: Deploy (optional)
