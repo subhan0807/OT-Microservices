@@ -32,8 +32,8 @@ jobs:
           cd attendance
           python -m pytest test_attendance_api.py
 
-      - name: Log in to Docker Hub
-        run: echo "subaero007" | docker login -u "subhan0807" --password-stdin
+      # - name: Log in to Docker Hub
+      #   run: echo "subaero007" | docker login -u "subhan0807" --password-stdin
 
       - name: Build Docker Image
         run: |
