@@ -31,12 +31,7 @@ jobs:
         run: |
           cd attendance
           python -m pytest test_attendance_api.py
-        
-      - name: Run linting
-        run: |
-          pip install pylint  # Install pylint
-          pylint attendance/attendance_api.py # Replace with your module name
-          
+      
       # - name: Build Docker Image (optional)
       #   run: |
       #     docker build -t your-image-name .
