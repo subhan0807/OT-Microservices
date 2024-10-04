@@ -37,16 +37,18 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          cd attendance
-          docker build . --file Dockerfile --tag attendance_api:latest
+          # cd attendance
+          # docker build . --file Dockerfile --tag attendance_api:latest
+          docker build -t my-app .
           
       - name: List Docker Images
         run: docker images
         
       - name: Push Docker Image
         run: |
-          cd attendance
-          docker push subhan0807/attendance_api:latest
+          # cd attendance
+          docker tag my-app subhan0807/my-app:latest
+          docker push subhan0807/my-app:latest
 
           
       # - name: Deploy (optional)
