@@ -32,9 +32,9 @@ jobs:
       - name: Define Image Tag
         id: vars
         run: |
-          echo "TAG=latest" >> $GITHUB_ENV  # You can customize this logic
-          # Example of creating a tag based on the Git commit SHA
-          # echo "TAG=${GITHUB_SHA:0:7}" >> $GITHUB_ENV  # Short SHA for tagging
+          echo "TAG=${GITHUB_SHA:0:7}" >> $GITHUB_ENV  # Use the short SHA for tagging
+          # Alternatively, you could use a version number or timestamp
+          # echo "TAG=$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
 
       - name: Build Docker Image
         run: |
